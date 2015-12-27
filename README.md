@@ -227,6 +227,79 @@ Berikut penjelasannya:
 * `exclude` : file / folder yang tidak akan diproses oleh compiler
 
 ### <a name="membuat-template-html">Membuat Template HTML</a> ###
+
+Selanjutnya, kita akan membuat file `index.html` untuk aplikasi kita. Pada awalnya, file ini berisi seperti ini:
+
+```html
+<html>    
+    <head>
+        <title>Halo Angular 2</title>        
+    </head>
+    
+    <body>        
+        <h1>Halo Angular 2</h1>        
+        Nama : <input type="text"> <br />        
+        Halo <pengunjung></pengunjung>        
+    </body>
+</html>
+```
+
+Setelah kita memiliki `index.html`, kita bisa mencoba konfigurasi aplikasi kita. Jalankan aplikasi dengan perintah berikut:
+
+```
+npm start
+```
+
+Outputnya akan terlihat seperti ini
+
+```
+> belajar-angular2@1.0.0 start /Users/endymuhardin/workspace/belajar/belajar-angular2
+> concurrent "npm run tsc:w" "npm run lite" 
+
+[0] 
+[0] > belajar-angular2@1.0.0 tsc:w /Users/endymuhardin/workspace/belajar/belajar-angular2
+[0] > tsc -w
+[0] 
+[1] 
+[1] > belajar-angular2@1.0.0 lite /Users/endymuhardin/workspace/belajar/belajar-angular2
+[1] > lite-server
+[1] 
+[1] [BS] Access URLs:
+[1]  --------------------------------------
+[1]        Local: http://localhost:3000
+[1]     External: http://192.168.1.193:3000
+[1]  --------------------------------------
+[1]           UI: http://localhost:3001
+[1]  UI External: http://192.168.1.193:3001
+[1]  --------------------------------------
+[1] [BS] Serving files from: ./
+[1] [BS] Watching files...
+[0] 10:08:12 PM - Compilation complete. Watching for file changes.
+[1] 15.12.27 22:08:13 200 GET /./index.html (Unknown - 141ms)
+[1] 15.12.27 22:08:13 404 GET /favicon.ico (Unknown - 28ms)
+[1] [BS] File changed: index.html
+[1] 15.12.27 22:10:29 200 GET /./index.html (Unknown - 7ms)
+```
+
+Perintah tersebut juga akan membuka browser dan menampilkan isi file `index.html` seperti ini
+
+![Tampilan index.html](img/index-html.png)
+
+Kita perlu melakukan beberapa hal dalam `index.html` yaitu:
+
+* load javascript yang dibutuhkan
+* bootstrap aplikasi kita sesuai tatacara SystemJS
+
+Mari kita lakukan yang pertama dulu. Tambahkan kode program berikut
+
+```html
+<!-- 1. Load JavaScript -->
+<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+<script src="node_modules/systemjs/dist/system.src.js"></script>
+<script src="node_modules/rxjs/bundles/Rx.js"></script>
+<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+```
+
 ### <a name="membuat-komponen-ng2">Membuat Komponen AngularJS 2.0</a> ###
 ## Tools ##
 
