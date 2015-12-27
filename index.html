@@ -1,0 +1,30 @@
+<html>    
+    <head>
+        <title>Halo Angular 2</title>
+        
+        <!-- 1. Load JavaScript -->
+        <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script src="node_modules/rxjs/bundles/Rx.js"></script>
+        <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+        
+        <!-- 2. Load Aplikasi -->
+        <script>
+        System.config({
+            packages: {        
+                halo: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('halo/boot')
+                .then(null, console.error.bind(console));
+        </script>
+    </head>
+    
+    <body>        
+        <h1>Halo Angular 2</h1>        
+        <pengunjung></pengunjung>        
+    </body>
+</html>
