@@ -163,7 +163,9 @@ Selanjutnya, kita akan melakukan modifikasi terhadap file `package.json`. Tambah
   }
 ```
 
-Dengan konfigurasi di atas, kita bisa menjalankan perintah `start` dari folder project.
+Dengan konfigurasi di atas, kita bisa menjalankan perintah `npm start` dari folder project. Perintah ini akan menjalankan dua perintah secara berbarengan (concurrent), yaitu `npm run tsc:w` dan `npm run lite`.
+Perintah `tsc:w` sendiri sebetulnya adalah alias dari `tsc -w`, sedangkan `lite` adalah alias dari `lite-server`, yaitu web server kecil.
+Perintah `npm start` ini sama saja dengan kita membuka dua console command line, kemudian menjalankan `tsc -w` dan `lite-server` di masing-masing console tersebut.
 
 Selanjutnya, tambahkan bagian `dependencies` agar memuat library AngularJS, SystemJS, dan kelengkapan lainnnya
 
@@ -188,6 +190,9 @@ Tambahkan juga `devDependencies` untuk paket yang hanya digunakan selama develop
     "typescript": "^1.7.3"
   }
 ```
+
+Setelah membuat file `package.json` jalankan perintah `npm install` supaya `npm` mengunduh dan menginstal library yang kita tulis di `package.json tersebut`.
+
 
 Untuk file `tsconfig.json`, berikut isi filenya
 
