@@ -204,7 +204,7 @@ Untuk file `tsconfig.json`, berikut isi filenya
         "moduleResolution": "node",
         "sourceMap": true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorator": true,
+        "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false
     },
