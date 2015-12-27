@@ -12,13 +12,13 @@
         <script>
         System.config({
             packages: {        
-                halo: {
+                app: {
                     format: 'register',
                     defaultExtension: 'js'
                 }
             }
         });
-        System.import('halo/halo')
+        System.import('app/boot')
                 .then(null, console.error.bind(console));
         </script>
     </head>
