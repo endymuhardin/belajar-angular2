@@ -221,7 +221,7 @@ Berikut penjelasannya:
 * `moduleResolution` : ada dua opsi : classic dan node. Untuk TypeScript versi 1.6 ke atas, gunakan `node`
 * `sourceMap` : opsi supaya compiler menghasilkan file `map`. File ini dibutuhkan agar kita bisa menelusuri pesan error di browser ke baris kode TypeScript (bukan ke JavaScript hasil compile)
 * `emitDecoratorMetadata` : menulis informasi tentang anotasi di file hasil kompilasi
-* `experimentalDecorator` : ini adalah konfigurasi agar Visual Studio Code tidak menampilkan pesan error untuk anotasi / decorator yang masih experimental
+* `experimentalDecorators` : ini adalah konfigurasi agar Visual Studio Code tidak menampilkan pesan error untuk anotasi / decorator yang masih experimental
 * `removeComments` : hilangkan semua komentar dari file hasil kompilasi
 * `noImplicitAny` : bila nilainya false, maka compiler akan menganggap variabel yang tidak memiliki deklarasi tipe data menjadi tipe data `any`. Bila nilainya `true`, compiler akan mengeluarkan pesan error.
 * `exclude` : file / folder yang tidak akan diproses oleh compiler
