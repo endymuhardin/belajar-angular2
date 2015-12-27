@@ -1,2 +1,5 @@
 # Vim Ignore
 *swp
+
+# Node JS
+node_modules
