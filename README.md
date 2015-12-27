@@ -79,7 +79,148 @@ halo.ts(2,1): error TS2322: Type 'number' is not assignable to type 'string'.
 
 Dari pesan error di atas, kita bisa lihat bahwa variabel `nama` tidak bisa diisi dengan nilai `123` karena tipe datanya berbeda.
 
+Lebih lanjut mengenai bahasa TypeScript dapat dipelajari pada [tutorial resmi di websitenya](http://www.typescriptlang.org/Tutorial).
+
 ### <a name="inisialisasi-struktur-project">Inisialisasi Struktur Project</a> ###
+
+Langkah pertama tentunya kita buat dulu folder projectnya.
+
+```
+mkdir belajar-angular2
+cd belajar-angular2
+```
+
+Ada dua file konfigurasi yang dibutuhkan dalam project TypeScript:
+
+* `package.json` : Konfigurasi dependency management untuk mencatat daftar package/library yang dibutuhkan. File ini digunakan oleh `npm` untuk mengunduh dan memasang library tambahan yang kita butuhkan dalam aplikasi yang akan kita buat.
+* `tsconfig.json` : Konfigurasi transpiler TypeScript. Adanya file ini menunjukkan bahwa folder ini merupakan project TypeScript.
+
+Untuk membuat file `package.json`, kita jalankan perintah `npm init`. Berikut hasilnya
+
+```
+npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg> --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+name: (belajar-angular2) 
+version: (1.0.0) 
+description: Aplikasi Belajar AngularJS 2.0
+entry point: (index.js) js/aplikasi.js
+test command: 
+git repository: https://github.com/endymuhardin/belajar-angular2
+keywords: 
+author: Endy Muhardin
+license: (ISC) CC-BY-SA-4.0
+About to write to /Users/endymuhardin/workspace/belajar/belajar-angular2/package.json:
+
+{
+  "name": "belajar-angular2",
+  "version": "1.0.0",
+  "description": "Aplikasi Belajar AngularJS 2.0",
+  "main": "js/aplikasi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endymuhardin/belajar-angular2.git"
+  },
+  "author": "Endy Muhardin",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/endymuhardin/belajar-angular2/issues"
+  },
+  "homepage": "https://github.com/endymuhardin/belajar-angular2#readme"
+}
+
+
+Is this ok? (yes) 
+```
+
+Untuk saat ini, kita belum melakukan modifikasi terhadap file tersebut. Selanjutnya, kita buat file konfigurasi satu lagi yaitu `tsconfig.json`.
+
+```
+tsc --init
+```
+
+Dia akan membuatkan file `tsconfig.json`.
+
+Selanjutnya, kita akan melakukan modifikasi terhadap file `package.json`. Tambahkan bagian script sehingga menjadi seperti ini
+
+```js
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+  }
+```
+
+Dengan konfigurasi di atas, kita bisa menjalankan perintah `start` dari folder project.
+
+Selanjutnya, tambahkan bagian `dependencies` agar memuat library AngularJS, SystemJS, dan kelengkapan lainnnya
+
+```js
+  "dependencies": {
+    "angular2": "2.0.0-beta.0",
+    "systemjs": "0.19.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10"
+  }
+```
+
+Tambahkan juga `devDependencies` untuk paket yang hanya digunakan selama development.
+
+```js
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "lite-server": "^1.3.1",
+    "typescript": "^1.7.3"
+  }
+```
+
+Untuk file `tsconfig.json`, berikut isi filenya
+
+```js
+{
+  "compilerOptions": {
+        "target": "es5",
+        "module": "system",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorator": true,
+        "removeComments": false,
+        "noImplicitAny": false
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+```
+
+Berikut penjelasannya:
+
+* `target` : hasil transpile. Kita output menjadi ES5 agar bisa dijalankan semua browser.
+* `module` : ini adalah sistem untuk load beberapa file `js` dalam project. Dalam contoh ini, kita menggunakan SystemJS. Selain SystemJS, ada juga beberapa alternatif lain misalnya: RequireJS, Browserify, WebPack, CommonJS, AMD, dan sebagainya.
+* `moduleResolution` : ada dua opsi : classic dan node. Untuk TypeScript versi 1.6 ke atas, gunakan `node`
+* `sourceMap` : opsi supaya compiler menghasilkan file `map`. File ini dibutuhkan agar kita bisa menelusuri pesan error di browser ke baris kode TypeScript (bukan ke JavaScript hasil compile)
+* `emitDecoratorMetadata` : menulis informasi tentang anotasi di file hasil kompilasi
+* `experimentalDecorator` : ini adalah konfigurasi agar Visual Studio Code tidak menampilkan pesan error untuk anotasi / decorator yang masih experimental
+* `removeComments` : hilangkan semua komentar dari file hasil kompilasi
+* `noImplicitAny` : bila nilainya false, maka compiler akan menganggap variabel yang tidak memiliki deklarasi tipe data menjadi tipe data `any`. Bila nilainya `true`, compiler akan mengeluarkan pesan error.
+* `exclude` : file / folder yang tidak akan diproses oleh compiler
+
 ### <a name="membuat-template-html">Membuat Template HTML</a> ###
 ### <a name="membuat-komponen-ng2">Membuat Komponen AngularJS 2.0</a> ###
 ## Tools ##
