@@ -300,6 +300,44 @@ Mari kita lakukan yang pertama dulu. Tambahkan kode program berikut
 <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 ```
 
+Ada beberapa script yang diload pada baris kode di atas:
+
+* Angular Polyfills : ini adalah library tambahan yang dipasang supaya kode program AngularJS bisa dijalankan di berbagai browser, bahkan yang belum mendukung fitur-fitur ES6. Script polyfill akan menambahkan fitur yang belum ada di browser.
+* System JS : ini adalah library yang tugasnya sebagai loader, yaitu mengaktifkan berbagai file JavaScript yang kita tulis. Untuk kemudahan pemrograman, biasanya kita membagi kode program ke banyak file. Sedangkan pada waktu dijalankan, browser lebih suka file yang lebih sedikit. Library loader mengatasi masalah ini, sehingga kita bisa membagi kode program ke banyak file, tapi pada waktu dijalankan, dia akan menggabungkannya menjadi satu.
+* Rx.js adalah implementasi Reactive Architecture dalam JavaScript, yaitu model pemrograman yang pola pikirnya adalah menangani event yang terjadi (_react to events_).
+* Angular 2 : ini adalah library AngularJS versi 2 yang pada saat artikel ini ditulis masih berstatus Beta (belum rilis Stable)
+
+Sebelum masuk ke pembahasan tentang SystemJS, perlu kita ketahui dua istilah penting dalam dunia JavaScript, yaitu `module` dan `module loader`.
+
+Penjelasan tentang `module` bisa dibaca di [artikel ini](https://www.airpair.com/javascript/posts/the-mind-boggling-universe-of-javascript-modules). Intinya adalah:
+
+* Untuk membuat aplikasi besar, idealnya kode program dibagi ke dalam modul. Konsep ini universal, bahasa pemrograman manapun perlu sistem modul agar bisa membuat aplikasi berskala besar. Tanpa sistem modul, kode program kita akan campur aduk dan sulit dimaintain.
+* Ada beberapa sistem modul yang populer di dunia JavaScript:
+
+    * CommonJS
+    * AMD (Asynchronous Module Definition)
+    * ESM (ECMAScript Module), sebelumnya dikenal dengan istilah `es6`
+
+Bila kita menggunakan framework JavaScript modern seperti AngularJS, EmberJS, Marionette, atau React, pastilah kita akan menemui sistem modul ini.
+
+Seperti lazimnya di dunia pemrograman, bila ada beberapa alternatif format/standar, akan muncul library untuk menyatukannya. Untuk kasus modul ini, jenis librarynya bernama _module loader_. Ada beberapa module loader yang populer, diantaranya:
+
+* browserify
+* webpack
+* SystemJS
+* jspm, yang dibangun di atas SystemJS
+
+Saat tulisan ini dibuat, yang sedang naik daun adalah WebPack dan SystemJS. Bagi yang tertarik pada perbandingan di antara mereka bisa membaca artikel berikut:
+
+* [Perbandingan Browserify dan Webpack](http://blog.namangoel.com/browserify-vs-webpack-js-drama)
+* [Perbandingan Webpack dan JSPM](http://ilikekillnerds.com/2015/07/jspm-vs-webpack/)
+* [Perbandingan Browserify, Webpack, SystemJS, dan JSPM](http://nervosax.com/2015/08/05/why-not-try-jspm-and-systemjs/)
+
+Manapun yang lebih baik, sebetulnya tidak terlalu masalah. Keempat library di atas hanyalah bertugas melakukan module loading, dan kode programnya pun hanya beberapa baris saja. Kita bisa menggantinya dengan mudah dan cepat, oleh karena itu tidak perlu terlalu diributkan.
+
+Untuk contoh kode program, kita akan menggunakan SystemJS. Alasannya karena itulah yang dicontohkan di website AngularJS. Pada fase belajar, sangat penting kita tidak mengubah banyak hal sekaligus, supaya tidak banyak yang kita pusingkan.
+
+
 ### <a name="membuat-komponen-ng2">Membuat Komponen AngularJS 2.0</a> ###
 ## Tools ##
 
