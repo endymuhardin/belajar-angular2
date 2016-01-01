@@ -337,6 +337,27 @@ Manapun yang lebih baik, sebetulnya tidak terlalu masalah. Keempat library di at
 
 Untuk contoh kode program, kita akan menggunakan SystemJS. Alasannya karena itulah yang dicontohkan di website AngularJS. Pada fase belajar, sangat penting kita tidak mengubah banyak hal sekaligus, supaya tidak banyak yang kita pusingkan.
 
+Langkah berikutnya, kita perlu menentukan bagaimana struktur folder aplikasi kita. Angular 2 sangat mengedepankan masalah komponen. Jadi, kita harus memikirkan aplikasi kita dengan pola pikir komponen. Sebuah komponen terdiri dari:
+
+* template HTML (view)
+* kode program JavaScript untuk memanipulasi komponen tersebut (controller)
+* data yang akan ditampilkan dalam template (model)
+
+Sebagai contoh, bila aplikasi kita memiliki tampilan seperti ini
+
+**TODO : Sketsa Tampilan**
+
+maka kita bisa membaginya menjadi beberapa komponen:
+
+* InfoUser
+* DaftarProduk
+* Rekomendasi
+
+Aplikasi di atas akan dibangun dengan struktur folder seperti ini
+
+![Struktur Folder Aplikasi](img/struktur-folder-aplikasi.png)
+
+
 
 ### <a name="membuat-komponen-ng2">Membuat Komponen AngularJS 2.0</a> ###
 ## Tools ##
