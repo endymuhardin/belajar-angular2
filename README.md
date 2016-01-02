@@ -6,8 +6,10 @@
    NPM](http://software.endy.muhardin.com/javascript/persiapan-coding-nodejs)
 2. [Instalasi TypeScript](#instalasi-typescript)
 3. [Inisialisasi Struktur Project](#inisialisasi-struktur-project)
-4. [Membuat Template HTML](#membuat-template-html)
-5. [Implementasi Komponen Angular 2](#implementasi-komponen-ng2)
+4. [Menjalankan Aplikasi](#menjalankan-aplikasi)
+5. [Konfigurasi Aplikasi JavaScript](#konfigurasi-aplikasi-javascript)
+6. [Membuat Template HTML](#membuat-template-html)
+7. [Implementasi Komponen Angular 2](#implementasi-komponen-ng2)
 
 ### <a name="instalasi-typescript">Instalasi TypeScript</a> ###
 
@@ -226,7 +228,8 @@ Berikut penjelasannya:
 * `noImplicitAny` : bila nilainya false, maka compiler akan menganggap variabel yang tidak memiliki deklarasi tipe data menjadi tipe data `any`. Bila nilainya `true`, compiler akan mengeluarkan pesan error.
 * `exclude` : file / folder yang tidak akan diproses oleh compiler
 
-### <a name="membuat-template-html">Membuat Template HTML</a> ###
+
+### <a name="menjalankan-aplikasi">Menjalankan Aplikasi</a> ###
 
 Selanjutnya, kita akan membuat file `index.html` untuk aplikasi kita. Pada awalnya, file ini berisi seperti ini:
 
@@ -284,6 +287,8 @@ Outputnya akan terlihat seperti ini
 Perintah tersebut juga akan membuka browser dan menampilkan isi file `index.html` seperti ini
 
 ![Tampilan index.html](img/index-html.png)
+
+### <a name="konfigurasi-aplikasi-javascript">Konfigurasi Aplikasi JavaScript</a> ###
 
 Kita perlu melakukan beberapa hal dalam `index.html` yaitu:
 
@@ -359,8 +364,43 @@ Aplikasi di atas akan dibangun dengan struktur folder seperti ini
 
 Kita juga tambahkan satu folder `halo` di dalam `app` untuk membuat komponen `hello-world`.
 
+Selanjutnya, kita akan membuat konfigurasi SystemJS untuk menjalankan aplikasi kita dan mengaktifkan komponen `hello-world` ini. Berikut adalah kode programnya.
+
+```js
+<!-- 2. Load Aplikasi -->
+<script>
+System.config({
+    packages: {        
+        app: {
+            format: 'register',
+            defaultExtension: 'js'
+        }
+    }
+});
+System.import('app/boot')
+        .then(null, console.error.bind(console));
+</script>
+```
+
+Penjelasan dari baris kode tersebut adalah:
+
+* Kita mendaftarkan packages bernama `app`. Lokasinya berada di `$baseURL/app`. Sedangkan `$baseURL` artinya lokasi dimana `index.html` berada.
+* Format modulnya menggunakan skema `register`. Ini artinya, di awal file ada baris kode untuk mendaftarkan modul ke SystemJS. Biasanya ditandai dengan perintah `System.register` atau `System.registerDynamic`. Bila kita kompilasi dengan TypeScript, biasanya perintah registrasi ini sudah otomatis ditambahkan.
+* File-file dalam modul ini berakhiran `.js`. Ini artinya yang dibaca dan diproses oleh SystemJS adalah file `.js` hasil kompilasi, bukan kode program TypeScript yang kita tulis.
+* Baris perintah `System.import` menjalankan modul aplikasi kita.
+* File yang dijalankan adalah `boot.js` yang berada dalam folder `app`.
+* File `boot.js` ini adalah hasil kompilasi dari `boot.ts`
+
+Untuk pengembangan ke depan, kita bisa otomasi proses ini lebih jauh dengan menggunakan `jspm`. Dengan `jspm`, bila kita menggunakan berbagai library tambahan, kita bisa instal dengan mudah menggunakan `jspm`. Ini disebut dengan dependency management, mirip dengan Maven di Java, npm di JavaScript, composer di PHP, ataupun Bower untuk CSS dan JavaScript.
+
+> Apa bedanya `jspm` dengan `bower`?
+
+Bower cuma mengurusi download dependensi saja. Sedangkan JSPM, selain mendownload file, dia juga memasang file tersebut dan mengurusi tata cara loading modulnya.
+
+### <a name="membuat-template-html">Membuat Template HTML</a> ###
 
 ### <a name="membuat-komponen-ng2">Membuat Komponen AngularJS 2.0</a> ###
+
 ## Tools ##
 
 * [Visual Studio Code]()
