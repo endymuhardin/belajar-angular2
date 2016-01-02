@@ -345,7 +345,7 @@ Langkah berikutnya, kita perlu menentukan bagaimana struktur folder aplikasi kit
 
 Sebagai contoh, bila aplikasi kita memiliki tampilan seperti ini
 
-**TODO : Sketsa Tampilan**
+![Mockup Tampilan](img/mockup-tampilan.png)
 
 maka kita bisa membaginya menjadi beberapa komponen:
 
@@ -357,6 +357,7 @@ Aplikasi di atas akan dibangun dengan struktur folder seperti ini
 
 ![Struktur Folder Aplikasi](img/struktur-folder-aplikasi.png)
 
+Kita juga tambahkan satu folder `halo` di dalam `app` untuk membuat komponen `hello-world`.
 
 
 ### <a name="membuat-komponen-ng2">Membuat Komponen AngularJS 2.0</a> ###
