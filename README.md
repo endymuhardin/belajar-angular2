@@ -366,7 +366,7 @@ Kita juga tambahkan satu folder `halo` di dalam `app` untuk membuat komponen `he
 
 Selanjutnya, kita akan membuat konfigurasi SystemJS untuk menjalankan aplikasi kita dan mengaktifkan komponen `hello-world` ini. Berikut adalah kode programnya.
 
-```js
+```html
 <!-- 2. Load Aplikasi -->
 <script>
 System.config({
