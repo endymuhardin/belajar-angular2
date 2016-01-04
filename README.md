@@ -397,6 +397,8 @@ Untuk pengembangan ke depan, kita bisa otomasi proses ini lebih jauh dengan meng
 
 Bower cuma mengurusi download dependensi saja. Sedangkan JSPM, selain mendownload file, dia juga memasang file tersebut dan mengurusi tata cara loading modulnya.
 
+Kita tidak akan membahas lebih jauh tentang JSPM. Bila Anda tertarik, bisa simak dulu cara pakai dan kegunaannya di [video ini](https://youtu.be/iukBMY4apvI).
+
 ### <a name="membuat-template-html">Membuat Template HTML</a> ###
 
 ### <a name="membuat-komponen-ng2">Membuat Komponen AngularJS 2.0</a> ###
