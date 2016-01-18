@@ -18,7 +18,7 @@ class Produk {
     }
 }
 
-let p = new Produk("P-001", "Produk 001", 125000);
+let p = new Produk("P-002", "Produk 002", 122000);
 
 console.log("Kode Produk : "+p.kode);
 console.log("Nama Produk : "+p.nama);

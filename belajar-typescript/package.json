@@ -1,0 +1,19 @@
+{
+  "name": "belajar-typescript",
+  "version": "1.0.0",
+  "description": "Belajar TypeScript",
+  "main": "halo.js",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w -t 'ES5'",
+    "lite": "lite-server",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "lite-server": "^1.3.2",
+    "typescript": "^1.7.5"
+  }
+}
