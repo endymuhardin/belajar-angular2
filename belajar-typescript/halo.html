@@ -2,7 +2,16 @@
     
     <head>
         <title>Belajar TypeScript</title>
-        <script src="halo.js"></script>
+        <script src="node_modules/systemjs/dist/system.js"></script>
+        
+        <script>
+        System.config({
+            defaultJSExtensions: true
+        });
+
+        // loads /halo.js
+        System.import('halo');
+        </script>
     </head>
     
     <body>
