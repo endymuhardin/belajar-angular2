@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "target": "es5",
+        "noImplicitAny": false,
+        "outDir": ".",
+        "rootDir": ".",
+        "sourceMap": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
