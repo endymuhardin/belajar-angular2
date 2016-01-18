@@ -1,0 +1,8 @@
+# Mac Ignore
+.DS_Store
+
+# Vim Ignore
+*.swp
+
+# TypeScript Ignore
+*.js
